@@ -25,7 +25,7 @@ using namespace std;
 // We'll store image info as globals; not great programming practice
 // but ok for this short program.
 int radius;
-bool **image;
+bool** image;
 
 void renderPixel(int x, int y) {
     assert(x >= 0 && y >= 0 && x <= radius && y <= radius);
@@ -41,7 +41,7 @@ void rasterizeArc(int r) {
 
 // You shouldn't need to change anything below this point.
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     if (argc != 2) {
         cout << "Usage: " << argv[0] << " circleSize\n";
         return 0;
@@ -58,8 +58,8 @@ int main(int argc, char *argv[]) {
     }
 
     // reserve image as 2d array
-    image = new bool*[radius+1];
-    for (int i = 0; i <= radius; i++) image[i] = new bool[radius+1];
+    image = new bool* [radius + 1];
+    for (int i = 0; i <= radius; i++) image[i] = new bool[radius + 1];
 
     rasterizeArc(radius);
 
@@ -72,15 +72,15 @@ int main(int argc, char *argv[]) {
 
     ofstream outfile(filename);
     outfile << "P3\n# " << filename << "\n";
-    outfile << radius+1 << ' ' << radius+1 << ' ' << 1 << endl;
+    outfile << radius + 1 << ' ' << radius + 1 << ' ' << 1 << endl;
 
     for (int i = 0; i <= radius; i++)
-    for (int j = 0; j <= radius; j++)
-        outfile << image[radius-i][j] << " 0 0\n";
+        for (int j = 0; j <= radius; j++)
+            outfile << image[radius - i][j] << " 0 0\n";
 
     // delete image data
-    for (int i = 0; i <= radius; i++) delete [] image[i];
-    delete [] image;
+    for (int i = 0; i <= radius; i++) delete[] image[i];
+    delete[] image;
 
     return 0;
 }
