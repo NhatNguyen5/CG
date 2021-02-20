@@ -29,12 +29,113 @@ bool** image;
 
 void renderPixel(int x, int y) {
     assert(x >= 0 && y >= 0 && x <= radius && y <= radius);
-    image[x][y] = 1;
 
+    
+    //cout << x << " " << y;
+    image[x][y] = 1; // x > 0, y > 0 (actual image) q12
+    //image[y][x] = 1; // mirror x>0, >0 through y = x q11
+
+    //image[x][-y] = 1; // x > 0, y < 0 q41
+    //image[y][-x] = 1; // mirror x < 0, y > 0 through y = x  q42
+    
+    //image[-x][-y] = 1; // x < 0, y < 0 q32
+    //image[-y][-x] = 1; // mirror x < 0, y < 0 through y = x q31
+
+    //image[-x][y] = 1; // x < 0, y > 0 q21
+    //image[-y][x] = 1; // mirror x < 0, y > 0 through y = x q22
+    
+    
+    
     // TODO:  light up the pixel's symmetric counterpart
 }
 
 void rasterizeArc(int r) {
+
+    for (int i = 0; i < r+1; i++) {
+        for (int j = 0; j < r+1; j++) {
+            image[i][j] = 0;
+            if(image[i][j] != 0)
+                cout << image[i][j] << " ";
+        }
+        //cout << endl;
+    }
+
+    int offset = radius / 2;
+
+    int r1 = 100;
+    int r2 = 150;
+
+    //circle r = 100 in x >= 0
+    int x1 = 0;
+    int y1 = r1;
+
+    int d1 = 1 - r1;
+    int deltaE1 = 3;
+    int deltaSE1 = -2 * r1 + 5;
+    renderPixel(x1, y1);
+    
+    while (y1 > x1) {
+        
+        if (d1 < 0) {
+            d1 += deltaE1;
+            deltaE1 += 2;
+            deltaSE1 += 2;
+        }
+        else {
+            d1 += deltaSE1;
+            deltaE1 += 2;
+            deltaSE1 += 4;
+            y1--;
+        }
+        x1++;
+        
+        renderPixel(x1 + offset, y1 + offset);
+        renderPixel(y1 + offset, x1 + offset);
+
+        //renderPixel(x1, -y1);
+        //renderPixel(y1, -x1);
+
+        renderPixel(-x1 + offset, y1 + offset);
+        renderPixel(-y1 + offset, x1 + offset);
+
+        //renderPixel(-x1, -y1);
+        //renderPixel(-y1, -x1);
+    }
+
+    //big circle r = 150 in y >= 0
+
+    int x2 = 0;
+    int y2 = r2;
+
+    int d2 = 1 - r2;
+    int deltaE2 = 3;
+    int deltaSE2 = -2 * r2 + 5;
+    renderPixel(x2, y2);
+
+    while (y2 > x2) {
+
+        if (d2 < 0) {
+            d2 += deltaE2;
+            deltaE2 += 2;
+            deltaSE2 += 2;
+        }
+        else {
+            d2 += deltaSE2;
+            deltaE2 += 2;
+            deltaSE2 += 4;
+            y2--;
+        }
+        x2++;
+
+        renderPixel(x2 + offset, y2 + offset);
+        renderPixel(y2 + offset, x2 + offset);
+
+        renderPixel(x2 + offset, -y2 + offset);
+        renderPixel(y2 + offset, -x2 + offset);
+
+    }
+
+
     // TODO:  rasterize the arc using renderPixel to light up pixels
 
 }
