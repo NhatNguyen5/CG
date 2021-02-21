@@ -1,5 +1,5 @@
 # Instruction
-Compile with <b>Visual Studio 2019</b> using command lines
+Compile with <b>Visual Studio 2019</b> using command lines  
 Compile: <b>g++ -o hw1.exe hw1.cpp</b>  
 Execute: <b>.\hw1.exe 400</b>  
 <sub>(In fact, any number > 200 will work, image size <= 200 will result in error)</sub>  
