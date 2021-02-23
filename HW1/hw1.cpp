@@ -72,7 +72,7 @@ void rasterizeArc(int r) {
     int d1 = 1 - r1;
     int deltaE1 = 3;
     int deltaSE1 = -2 * r1 + 5;
-    renderPixel(y1 + offset, x1 + offset);
+    renderPixel(x1 + offset, y1 + offset);
     
     while (y1 > x1) {
         
