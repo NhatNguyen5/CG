@@ -54,8 +54,8 @@ void problem1() {
 	double angle_in_degree = 180 / 5;
 	for(int i = 0; i < 360 / angle_in_degree ; i++)
 	{
-		double x = cos(angle_in_rad * i) * r; // calculate x bade on angle
-		double y = sin(angle_in_rad * i) * r; // calculate y bade on angle
+		double x = cos(angle_in_rad * i) * r; // calculate x base on angle
+		double y = sin(angle_in_rad * i) * r; // calculate y base on angle
 	
 		glPushMatrix();
 		glTranslated(x, y, 0);
@@ -78,7 +78,7 @@ void problem2() {
 		double x = step_d * (i - ((step + 2) / 2));
 		double y = (step_d + (step_inc * i)) / ((step + 5) / 2);
 		glPushMatrix();
-		glTranslated(x, y+0.1, 0);
+		glTranslated(x, y + 0.1, 0);
 		glScalef(1, 1 + step_inc * i, 1);
 		glutSolidCube(step_d);
 		glPopMatrix();
@@ -160,8 +160,7 @@ void problem4() {
 				x2 = 0; y2 = 0;
 				x3 = 2 * t_x; y3 = 0;
 			}
-			glPushMatrix();
-					
+			glPushMatrix();	
 				glBegin(GL_TRIANGLES);
 					glVertex2f(x1, y1);
 					glVertex2f(x2, y2);
