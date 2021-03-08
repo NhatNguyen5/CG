@@ -58,7 +58,7 @@ void problem1() {
 		double y = sin(angle_in_rad * i) * r; // calculate y bade on angle
 	
 		glPushMatrix();
-		glTranslatef(x, y, 0);
+		glTranslated(x, y, 0);
 		glRotatef(angle_in_degree * i, 0, 0, 1);
 		glutSolidTeapot(0.2);
 		glPopMatrix();
@@ -71,18 +71,20 @@ void problem2() {
 	double step = 15;
 	double step_d = 0.20;
 	double step_inc = 0.1;
-
+	glPushMatrix();
+	glTranslated(0, -0.5, 0);
 	for (double i = 1; i <= step; i++)
 	{
 		double x = step_d * (i - ((step + 2) / 2));
 		double y = (step_d + (step_inc * i)) / ((step + 5) / 2);
 		glPushMatrix();
-		glTranslatef(x, y+0.1, 0);
+		glTranslated(x, y+0.1, 0);
 		glScalef(1, 1 + step_inc * i, 1);
 		glutSolidCube(step_d);
 		glPopMatrix();
 		step_inc += 0.01;
 	}
+	glPopMatrix();
 }
 
 void problem3() {
@@ -102,7 +104,7 @@ void problem3() {
 			double new_x = x + offset * j;
 
 			glPushMatrix();
-			glTranslatef(new_x, y + offset, 0);
+			glTranslated(new_x, y + offset, 0);
 			glutSolidTeapot(0.2);
 			glPopMatrix();
 		}
@@ -119,10 +121,62 @@ void problem4() {
 	double blade_w = u * sin(pi / 4);
 	double blade_d = u * sin(pi / 4) * d_w_ratio;
 	double r_size = 0.2;
+	double x1 = 0, y1 = 0;
+	double x2 = 0, y2 = 0;
+	double x3 = 0, y3 = 0;
+	double t_x = 0.5, t_y = t_x/tan(pi/6);
+	double t_s = 9;
+	
+	//glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+	//glEnable(GL_COLOR_MATERIAL);
 	//double blade_l = 2*u;
+	// Tri-force
+	glEnable(GL_COLOR_MATERIAL);
+	glColor3f(0.95f, 0.95f, 0.06f);
+	//glPushMatrix();
+		//glTranslated(0, 0, 0); // move the whole thing
+		
 	glPushMatrix();
-		glTranslatef(0, 0.15, 0);
+		//glTranslated(0, - t_s * t_y, 0); // center the Triforce
+		glTranslated(0, - 5.5 * t_y, 0);
+		glScalef(t_s, t_s, 0);
+		for (int i = 0; i < 3; i++)
+		{
+			if (i == 0)
+			{
+				x1 = 0; y1 = t_y * 2;
+				x2 = -t_x; y2 = t_y;
+				x3 = t_x; y3 = t_y;
+			}
+			else if (i == 1)
+			{
+				x1 = -t_x; y1 = t_y;
+				x2 = -2 * t_x; y2 = 0;
+				x3 = 0; y3 = 0;
+			}
+			else
+			{
+				x1 = t_x; y1 = t_y;
+				x2 = 0; y2 = 0;
+				x3 = 2 * t_x; y3 = 0;
+			}
+			glPushMatrix();
+					
+				glBegin(GL_TRIANGLES);
+					glVertex2f(x1, y1);
+					glVertex2f(x2, y2);
+					glVertex2f(x3, y3);
+				glEnd();
+			glPopMatrix();
+		}
+	glPopMatrix();
+
+	glPushMatrix();
+		//glTranslated(0, -3, 0); // center the blade if center the Triforce
+		glTranslated(0, 0.2, 0);
+		//glRotated(180, 1, 0, 0);
 		// The blade
+		glColor3f(0.9, 0.9, 0.9);
 		glPushMatrix();
 			glScaled(1, 4, d_w_ratio);
 			glPushMatrix();
@@ -142,9 +196,10 @@ void problem4() {
 			glPopMatrix();
 		glPopMatrix();
 		// Blade guard
+		glColor3f(0.11, 0.25, 0.25);
 		// Right guard
 		glPushMatrix();
-			glTranslatef(0.08, -u * 4, 0);
+			glTranslated(0.08, -u * 4, 0);
 			glScaled(2.1, 0.5, d_w_ratio + 0.2);
 			glPushMatrix();
 				glRotatef(45, 0, 1, 0);
@@ -153,13 +208,13 @@ void problem4() {
 		glPopMatrix();
 		// Filling
 		glPushMatrix();
-			glTranslatef(0, -u * 4, 0);
+			glTranslated(0, -u * 4, 0);
 			glScaled(0.32, 0.5, 2 * (d_w_ratio + 0.2) * sin(pi/4));
 			glutSolidCube(u);
 		glPopMatrix();
 		// Left guard
 		glPushMatrix();
-			glTranslatef(-0.08, -u * 4, 0);
+			glTranslated(-0.08, -u * 4, 0);
 			glScaled(2.1, 0.5, d_w_ratio + 0.2);
 			glPushMatrix();
 				glRotatef(45, 0, 1, 0);
@@ -167,12 +222,13 @@ void problem4() {
 			glPopMatrix();
 		glPopMatrix();
 		// Handle
+		glColor3f(0.93f, 0.52f, 0.26f);
 		double handle_l = 0;
 		for (int i = 1; i <= 5; i++)
 		{
 			handle_l = -u * (4 + 0.4 * i);
 			glPushMatrix();
-				glTranslatef(0, handle_l, 0);
+				glTranslated(0, handle_l, 0);
 				glScaled(r_size, 0.5, r_size);
 				glPushMatrix();
 					glRotatef(90, 1, 0, 0);
@@ -182,17 +238,19 @@ void problem4() {
 			r_size = r_size - 0.01;
 		}
 		// Pommel
+		glColor3f(0.66f, 0.71f, 0.73f);
 		glPushMatrix();
-			glTranslatef(0, handle_l - 0.2, 0);
+			glTranslated(0, handle_l - 0.2, 0);
 			glScaled(u/4, u/4, u/4);
 			glPushMatrix();
 				//glRotatef(45, 0, 1, 0);
 				glutSolidDodecahedron();
 			glPopMatrix();
 		glPopMatrix();
+		glColor3f(0.27f, 0.85f, 0.25f);
 		// Crystal 1
 		glPushMatrix();
-			glTranslatef(0, -u * 4, 0.25);
+			glTranslated(0, -u * 4, 0.25);
 			//glScaled(1, 3, 0.5);
 			glPushMatrix();
 				//glRotatef(90, 0, 0, 1);
@@ -202,7 +260,7 @@ void problem4() {
 		glPopMatrix();
 		// Crystal 2
 		glPushMatrix();
-			glTranslatef(0, -u * 4, -0.25);
+			glTranslated(0, -u * 4, -0.25);
 			//glScaled(1, 3, 0.5);
 			glPushMatrix();
 				//glRotatef(90, 0, 0, 1);
@@ -211,6 +269,9 @@ void problem4() {
 			glPopMatrix();
 		glPopMatrix();
 	glPopMatrix();
+	//glPopMatrix();
+	glColor3f(1, 1, 1);
+	glDisable(GL_COLOR_MATERIAL);
 }
 
 void display() {
@@ -294,7 +355,6 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(windowWidth, windowHeight);
 	glutCreateWindow("HW2");
-
 	glutDisplayFunc(display);
 	glutMotionFunc(mouseMoved);
 	glutMouseFunc(mouse);
