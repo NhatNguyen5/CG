@@ -1,0 +1,17 @@
+﻿  hw2.cpp
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(63,29): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(83,17): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(143,17): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(143,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(166,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(166,17): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(167,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(167,17): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(168,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(168,17): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(179,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(190,21): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(199,29): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(308,12): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\hw2.cpp(330,51): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+  HW2.vcxproj -> D:\Docs\UH_Bachelor_of_Science_in_Computer_Science\2021_1_UH_Spring\COSC_4370_Interactive_Computer_Graphics\HW2\Debug\HW2.exe
