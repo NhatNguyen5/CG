@@ -17,7 +17,7 @@ void main()
     // If gl_Position was set correctly, this gives a totally red cube
     //color = vec4(vec3(1.f,0.f,0.f), 1.0f);
     // ambient
-    float ambientStrength = 1;
+    float ambientStrength = 0.01;
     vec3 ambient = ambientStrength * lightColor;    
     
      // diffuse 

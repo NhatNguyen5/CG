@@ -36,7 +36,7 @@ GLfloat lastY = HEIGHT / 2.0;
 bool    keys[1024];
 
 // Light attributes
-glm::vec3 lightPos(1.2f, 10.0f, 5.0f);
+glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
 // Deltatime
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
@@ -186,7 +186,7 @@ int main()
         glm::mat4 projection;
         // TODO: set up the project matrix
         // Most of the code taken from learnopengl.com
-        projection = glm::perspective(camera.Zoom, (GLfloat)(800) / 600, 0.5f, 100.0f);
+        projection = glm::perspective(glm::radians(90.0f), (GLfloat)(800) / 600, 0.5f, 100.0f);
 
         // Get the uniform locations
         GLint modelLoc = glGetUniformLocation(lightingShader.Program, "model");
