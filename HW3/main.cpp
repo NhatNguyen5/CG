@@ -186,7 +186,7 @@ int main()
         glm::mat4 projection;
         // TODO: set up the project matrix
         // Most of the code taken from learnopengl.com
-        projection = glm::perspective(glm::radians(90.0f), (GLfloat)(800) / 600, 0.5f, 100.0f);
+        projection = glm::perspective(glm::radians(90.0f), 800.0f / 600.0f, 0.5f, 100.0f);
 
         // Get the uniform locations
         GLint modelLoc = glGetUniformLocation(lightingShader.Program, "model");
